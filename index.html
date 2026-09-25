@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Calcule quantos salgados e doces comprar para a sua festa."
+    />
+    <meta name="theme-color" content="#fff8ef" />
+    <title>Conta da Festa — Calculadora de salgados e doces</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="intro">
+        <a class="brand" href="#" aria-label="Conta da Festa — início">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 28 28" role="img">
+              <path d="M7 20.5 12 5l4 11 5-7 1 11.5H7Z" />
+              <circle cx="7" cy="5" r="2" />
+              <circle cx="21" cy="5" r="2" />
+              <circle cx="14" cy="2.5" r="2" />
+            </svg>
+          </span>
+          <span>Conta da Festa</span>
+        </a>
+      </header>
+
+      <section class="calculator" aria-labelledby="calculator-title">
+        <h2 id="calculator-title" class="sr-only">Calculadora da festa</h2>
+
+        <form id="party-form">
+          <fieldset>
+            <legend>
+              <span class="step">01</span>
+              <span>
+                <strong>Seus convidados</strong>
+                <small>Quantas pessoas vão participar?</small>
+              </span>
+            </legend>
+
+            <div class="field-grid guests-grid">
+              <label class="field">
+                <span>Adultos</span>
+                <span class="input-wrap">
+                  <input
+                    id="adults"
+                    name="adults"
+                    type="number"
+                    min="0"
+                    step="1"
+                    value="0"
+                    inputmode="numeric"
+                    required
+                  />
+                  <small>pessoas</small>
+                </span>
+              </label>
+
+              <label class="field">
+                <span>Crianças</span>
+                <span class="input-wrap">
+                  <input
+                    id="children"
+                    name="children"
+                    type="number"
+                    min="0"
+                    step="1"
+                    value="0"
+                    inputmode="numeric"
+                    required
+                  />
+                  <small>pessoas</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>
+              <span class="step">02</span>
+              <span>
+                <strong>Porções por pessoa</strong>
+                <small>Ajuste as sugestões como preferir.</small>
+              </span>
+            </legend>
+
+            <div class="portion-group">
+              <div class="group-heading">
+                <span class="food-icon savory" aria-hidden="true">S</span>
+                <div>
+                  <strong>Salgados</strong>
+                  <small>coxinhas, quibes e afins</small>
+                </div>
+              </div>
+              <div class="field-grid portions-grid">
+                <label class="field compact">
+                  <span>Por adulto</span>
+                  <input
+                    id="savory-per-adult"
+                    name="savoryPerAdult"
+                    type="number"
+                    min="0"
+                    step="1"
+                    value="13"
+                    inputmode="numeric"
+                    required
+                  />
+                </label>
+                <label class="field compact">
+                  <span>Por criança</span>
+                  <input
+                    id="savory-per-child"
+                    name="savoryPerChild"
+                    type="number"
+                    min="0"
+                    step="1"
+                    value="7"
+                    inputmode="numeric"
+                    required
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div class="portion-group">
+              <div class="group-heading">
+                <span class="food-icon sweet" aria-hidden="true">D</span>
+                <div>
+                  <strong>Doces</strong>
+                  <small>brigadeiros, beijinhos e afins</small>
+                </div>
+              </div>
+              <div class="field-grid portions-grid">
+                <label class="field compact">
+                  <span>Por adulto</span>
+                  <input
+                    id="sweet-per-adult"
+                    name="sweetPerAdult"
+                    type="number"
+                    min="0"
+                    step="1"
+                    value="8"
+                    inputmode="numeric"
+                    required
+                  />
+                </label>
+                <label class="field compact">
+                  <span>Por criança</span>
+                  <input
+                    id="sweet-per-child"
+                    name="sweetPerChild"
+                    type="number"
+                    min="0"
+                    step="1"
+                    value="5"
+                    inputmode="numeric"
+                    required
+                  />
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+
+          <button class="calculate-button" type="submit">
+            Calcular quantidades
+            <span aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <section class="result" id="result" aria-live="polite" hidden>
+          <div class="result-heading">
+            <p class="eyebrow">Sua lista de compras</p>
+            <h2>
+              Para servir <span id="guest-total">0</span>
+              <span id="guest-label">convidados</span>
+            </h2>
+          </div>
+
+          <div class="result-grid">
+            <article class="result-card savory-card">
+              <span class="result-label">Salgados</span>
+              <strong id="savory-total">0</strong>
+              <span>unidades</span>
+            </article>
+            <article class="result-card sweet-card">
+              <span class="result-label">Doces</span>
+              <strong id="sweet-total">0</strong>
+              <span>unidades</span>
+            </article>
+          </div>
+
+          <p class="result-note">
+            Quantidade estimada com base nas porções informadas.
+          </p>
+        </section>
+      </section>
+
+      <footer>Feito para festas felizes e contas simples.</footer>
+    </main>
+  </body>
+</html>
